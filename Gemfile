@@ -9,5 +9,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry'
+  gem 'annotate', github: 'ctran/annotate_models'
 end
 

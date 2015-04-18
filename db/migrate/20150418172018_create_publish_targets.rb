@@ -5,6 +5,7 @@ class CreatePublishTargets < ActiveRecord::Migration
       t.string :name, null: false
       t.references :publisher, null: false
       t.string :url
+      t.boolean :is_main
 
       t.timestamps null: false
     end

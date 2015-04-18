@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'googl', '~> 0.7'
 
 group :development, :test do
   gem 'byebug'

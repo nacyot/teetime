@@ -5,6 +5,7 @@ gem 'pg'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'googl', '~> 0.7'
 gem 'rails_config', '~> 0.4'
+gem 'validate_url', '~> 1'
 
 group :development, :test do
   gem 'byebug'

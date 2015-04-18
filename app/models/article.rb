@@ -9,6 +9,11 @@
 #  bundle_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  type       :string
+#
+# Indexes
+#
+#  index_articles_on_type  (type)
 #
 
 class Article < ActiveRecord::Base

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418102100) do
+ActiveRecord::Schema.define(version: 20150418152951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20150418102100) do
     t.integer  "bundle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "type"
   end
+
+  add_index "articles", ["type"], name: "index_articles_on_type", using: :btree
 
   create_table "bundles", force: :cascade do |t|
     t.string   "name"

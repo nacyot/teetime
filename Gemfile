@@ -4,6 +4,7 @@ gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'googl', '~> 0.7'
+gem "rails_config", '~> 0.4'
 
 group :development, :test do
   gem 'byebug'

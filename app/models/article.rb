@@ -21,4 +21,15 @@ class Article < ActiveRecord::Base
 
   validates_presence_of :text
   validates_presence_of :type
+
+  private
+
+  def shorten(string)
+    URI.extract(string, ['http', 'https']).each do |url|
+      googl = Googl.shorten 'url', nil, Settings.GOOGLE_API_KEY
+      string.sub!(url, googl.short_url)
+    end
+    
+    string
+  end
 end

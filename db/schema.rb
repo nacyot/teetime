@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20150418152951) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
-    t.text     "text",       null: false
+    t.text     "text",                           null: false
     t.hstore   "metadata"
     t.integer  "bundle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "type"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "type",       default: "Article"
   end
 
   add_index "articles", ["type"], name: "index_articles_on_type", using: :btree

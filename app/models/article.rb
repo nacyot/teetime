@@ -9,7 +9,7 @@
 #  bundle_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  type       :string
+#  type       :string           default("Article")
 #
 # Indexes
 #
@@ -21,6 +21,7 @@ class Article < ActiveRecord::Base
 
   validates_presence_of :text
   validates_presence_of :type
+  validates_presence_of :bundle_id
 
   private
 

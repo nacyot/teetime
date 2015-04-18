@@ -12,4 +12,8 @@
 #
 
 class Article < ActiveRecord::Base
+  belongs_to :bundle
+
+  validates_presence_of :text
+  validates_presence_of :type
 end

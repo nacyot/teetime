@@ -11,4 +11,6 @@
 #
 
 class Bundle < ActiveRecord::Base
+  belongs_to :team
+  has_many :articles
 end

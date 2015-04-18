@@ -10,4 +10,7 @@
 #
 
 class Publisher < ActiveRecord::Base
+  has_many :publish_targets
+
+  validates :url, url: true
 end

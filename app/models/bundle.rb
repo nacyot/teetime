@@ -12,5 +12,10 @@
 
 class Bundle < ActiveRecord::Base
   belongs_to :team
+  has_many :publish_targets
   has_many :articles
+
+  validates_presence_of :name
+  validates_presence_of :description
+  # validates_presence_of :team_id
 end

@@ -12,4 +12,8 @@
 #
 
 class PublishTarget < ActiveRecord::Base
+  belongs_to :bundle
+  belongs_to :publsher
+
+  validates :url, url: true
 end

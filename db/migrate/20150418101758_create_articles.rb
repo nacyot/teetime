@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.text :text, null: false
       t.hstore :metadata
-      t.references :bundle
+      t.references :bundle, index: true, foreign_key: true
 
       t.timestamps null: false
     end

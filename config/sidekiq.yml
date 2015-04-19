@@ -1,0 +1,4 @@
+:pidfile: ./tmp/pids/sidekiq.pid
+:concurrency: 1
+:queues:
+  - default

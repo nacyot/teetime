@@ -9,5 +9,5 @@
 #
 
 class Organization < ActiveRecord::Base
-  has_many :team
+  has_many :team, dependent: :destroy
 end

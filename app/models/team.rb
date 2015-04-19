@@ -11,7 +11,9 @@
 
 class Team < ActiveRecord::Base
   belongs_to :organization
-  has_many :bundles
+  has_many :bundles, dependent: :destroy
 
-  vali
+  validates_presence_of :organization
+  validates_presence_of :name
+  validates_uniqueness_of :name, scope: :organization
 end

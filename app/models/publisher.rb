@@ -11,6 +11,7 @@
 
 class Publisher < ActiveRecord::Base
   has_many :publish_targets
+  has_many :bundles, through: :publish_targets
 
   validates :url, url: true
 end

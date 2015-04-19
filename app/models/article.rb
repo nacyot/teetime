@@ -21,7 +21,7 @@ class Article < ActiveRecord::Base
 
   validates_presence_of :text
   validates_presence_of :type
-  validates_presence_of :bundle_id
+  validates_presence_of :bundle
 
   private
 

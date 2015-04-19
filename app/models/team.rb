@@ -16,4 +16,8 @@ class Team < ActiveRecord::Base
   validates_presence_of :organization
   validates_presence_of :name
   validates_uniqueness_of :name, scope: :organization
+
+  def default_bundle
+    bundles.find_by(name: 'Default')
+  end
 end

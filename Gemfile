@@ -7,6 +7,9 @@ gem 'googl', '~> 0.7'
 gem 'rails_config', '~> 0.4'
 gem 'validate_url', '~> 1'
 
+# Specify version for IRuby Notebook
+gem 'multi_json', '~> 1.10.0'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

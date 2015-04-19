@@ -13,9 +13,9 @@
 
 class PublishTarget < ActiveRecord::Base
   belongs_to :bundle
-  belongs_to :publsher
+  belongs_to :publisher
 
   validates :url, url: true
-  validates_presence_of :publsher
+  validates_presence_of :publisher
   validates_presence_of :bundle
 end

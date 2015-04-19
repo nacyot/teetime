@@ -17,6 +17,8 @@
 #
 
 class Article < ActiveRecord::Base
+  acts_as_taggable
+
   belongs_to :bundle
 
   validates_presence_of :text

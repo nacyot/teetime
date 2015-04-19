@@ -6,6 +6,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'googl', '~> 0.7'
 gem 'rails_config', '~> 0.4'
 gem 'validate_url', '~> 1'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Specify version for IRuby Notebook
 gem 'multi_json', '~> 1.10.0'

@@ -12,6 +12,7 @@
 class Team < ActiveRecord::Base
   belongs_to :organization
   has_many :bundles, dependent: :destroy
+  # has_many :users
 
   validates_presence_of :organization
   validates_presence_of :name

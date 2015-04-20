@@ -10,6 +10,7 @@
 
 class Organization < ActiveRecord::Base
   has_many :teams, dependent: :destroy
+  # has_many :users
 
   def default_team
     teams.find_by(name: 'Default')

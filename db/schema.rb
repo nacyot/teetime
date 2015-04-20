@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419133010) do
+ActiveRecord::Schema.define(version: 20150420160339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,15 +19,28 @@ ActiveRecord::Schema.define(version: 20150419133010) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
-    t.text     "text",                           null: false
+    t.text     "text",                            null: false
     t.hstore   "metadata"
     t.integer  "bundle_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "type",       default: "Article"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "type",        default: "Article"
+    t.string   "title_image"
   end
 
   add_index "articles", ["type"], name: "index_articles_on_type", using: :btree
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file",        null: false
+    t.integer  "article_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "attachments", ["article_id"], name: "index_attachments_on_article_id", using: :btree
 
   create_table "bundles", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +48,28 @@ ActiveRecord::Schema.define(version: 20150419133010) do
     t.integer  "team_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "exported_files", force: :cascade do |t|
+    t.string   "file",               null: false
+    t.integer  "article_id"
+    t.string   "title"
+    t.text     "url"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "exported_format_id"
+    t.integer  "formatter_id"
+  end
+
+  add_index "exported_files", ["article_id"], name: "index_exported_files_on_article_id", using: :btree
+  add_index "exported_files", ["exported_format_id"], name: "index_exported_files_on_exported_format_id", using: :btree
+  add_index "exported_files", ["formatter_id"], name: "index_exported_files_on_formatter_id", using: :btree
+
+  create_table "exported_formats", force: :cascade do |t|
+    t.string   "name"
+    t.string   "extention"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "formatters", force: :cascade do |t|
@@ -129,6 +164,10 @@ ActiveRecord::Schema.define(version: 20150419133010) do
   add_index "user_oauths", ["publisher_id"], name: "index_user_oauths_on_publisher_id", using: :btree
   add_index "user_oauths", ["team_id"], name: "index_user_oauths_on_team_id", using: :btree
 
+  add_foreign_key "attachments", "articles"
+  add_foreign_key "exported_files", "articles"
+  add_foreign_key "exported_files", "exported_formats"
+  add_foreign_key "exported_files", "formatters"
   add_foreign_key "ideas", "bundles"
   add_foreign_key "publications", "articles"
   add_foreign_key "publications", "publish_targets"

@@ -8,7 +8,7 @@ gem 'rails_config', '~> 0.4'
 gem 'validate_url', '~> 1'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails_admin', '~> 0.6'
-gem 'sidetiq'
+gem 'sidetiq', require: false
 gem 'sinatra', require: false
 
 # Specify version for IRuby Notebook
@@ -19,7 +19,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'guard-rspec', require: false
-  gem 'guard-rubocop'
+  gem 'guard-rubocop', require: false
   gem 'rubocop', require: false
 end
 
@@ -32,10 +32,10 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'factory_girl', require: false
-  gem 'factory_girl_rails', require: false
   gem 'faker'
   gem 'database_cleaner'
+  gem 'factory_girl', require: false
+  gem 'factory_girl_rails', require: false
 end
 
 group :coverage do

@@ -8,8 +8,10 @@ gem 'rails_config', '~> 0.4'
 gem 'validate_url', '~> 1'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails_admin', '~> 0.6'
-gem 'sidetiq', require: false
-gem 'sinatra', require: false
+gem 'sidetiq'
+gem 'sinatra'
+gem 'carrierwave'
+gem 'devise'
 
 # Specify version for IRuby Notebook
 gem 'multi_json', '~> 1.10.0'
@@ -28,6 +30,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry'
   gem 'annotate', github: 'ctran/annotate_models'
+  gem 'iruby', github: 'SciRuby/iruby'
 end
 
 group :test do

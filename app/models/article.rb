@@ -19,12 +19,17 @@
 
 class Article < ActiveRecord::Base
   acts_as_taggable
+  mount_uploader :title_image, TitleImageUploader
 
   belongs_to :bundle
+  has_many :publications
+  has_many :attachments
+  has_many :exported_files
 
   validates_presence_of :text
   validates_presence_of :type
   validates_presence_of :bundle
+
 
   private
 
